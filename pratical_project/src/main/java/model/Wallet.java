@@ -46,4 +46,13 @@ public class Wallet {
     public void setStatus(String status) {
         this.status = status;
     }
+
+    @Override
+    public String toString() {
+        return "Wallet{" +
+                "walletId=" + walletId +
+                ", dateRegister=" + dateRegister +
+                ", status='" + status + '\'' +
+                '}';
+    }
 }
