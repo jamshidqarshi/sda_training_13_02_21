@@ -29,6 +29,9 @@ public class PaymentType {
         this.name = name;
     }
 
+    public PaymentType() {
+    }
+
     public PaymentType(int paymentTypeId, String name) {
         this.paymentTypeId = paymentTypeId;
         this.name = name;
