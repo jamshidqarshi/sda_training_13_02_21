@@ -8,8 +8,7 @@ import javax.persistence.EntityManager;
 public class CustomerRepository {
 
     private EntityManager entityManager;
-    //test
-    //test 23
+    private int test;
 
     public CustomerRepository() {entityManager = DBUtil.getEntityManager();}
 
