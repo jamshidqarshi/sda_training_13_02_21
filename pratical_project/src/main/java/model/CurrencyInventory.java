@@ -12,8 +12,9 @@ public class CurrencyInventory {
     @Column(name = "currency_inventory_id")
     private int currencyInventoryId;
 
-    @Column(name = "daily_price")
-    private int dailyPrice;
+    @ManyToOne
+    @JoinColumn(name = "current_daily_price_id")
+    private CurrencyDailyPrice currencyDailyPrice;
 
     @Column(name = "old_price")
     private double oldPrice;
@@ -29,9 +30,9 @@ public class CurrencyInventory {
     @Column(name = "updated_in")
     private Date updatedIn;
 
-    public CurrencyInventory(int currencyInventoryId, int dailyPrice, double oldPrice, double newPrice, boolean isActive, int staffId, Date updatedIn) {
+    public CurrencyInventory(int currencyInventoryId, CurrencyDailyPrice currencyDailyPrice, double oldPrice, double newPrice, boolean isActive, int staffId, Date updatedIn) {
         this.currencyInventoryId = currencyInventoryId;
-        this.dailyPrice = dailyPrice;
+        this.currencyDailyPrice = currencyDailyPrice;
         this.oldPrice = oldPrice;
         this.newPrice = newPrice;
         this.isActive = isActive;
@@ -47,12 +48,12 @@ public class CurrencyInventory {
         this.currencyInventoryId = currencyInventoryId;
     }
 
-    public int getDailyPrice() {
-        return dailyPrice;
+    public CurrencyDailyPrice getCurrencyDailyPrice() {
+        return currencyDailyPrice;
     }
 
-    public void setDailyPrice(int dailyPrice) {
-        this.dailyPrice = dailyPrice;
+    public void setCurrencyDailyPrice(CurrencyDailyPrice currencyDailyPrice) {
+        this.currencyDailyPrice = currencyDailyPrice;
     }
 
     public double getOldPrice() {
@@ -99,7 +100,7 @@ public class CurrencyInventory {
     public String toString() {
         return "CurrencyInventory{" +
                 "currencyInventoryId=" + currencyInventoryId +
-                ", dailyPrice=" + dailyPrice +
+                ", currencyDailyPrice=" + currencyDailyPrice +
                 ", oldPrice=" + oldPrice +
                 ", newPrice=" + newPrice +
                 ", isActive=" + isActive +
