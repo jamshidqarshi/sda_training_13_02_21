@@ -4,51 +4,71 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
+@Table(name = "currency_inventory")
 public class CurrencyInventory {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int currency_inventory_id;
-    private int daily_price;
-    private double old_price;
-    private double new_price;
+    @Column(name = "currency_inventory_id")
+    private int currencyInventoryId;
+
+    @Column(name = "daily_price")
+    private int dailyPrice;
+
+    @Column(name = "old_price")
+    private double oldPrice;
+
+    @Column(name = "name_price")
+    private double newPrice;
+
     private boolean isActive;
-    private int staff_id;
-    private Date updated_in;
 
-    @ManyToOne
-    private CurrencyDailyPrice currencyDailyPrice;
+    @Column(name = "staff_id")
+    private int staffId;
 
-    public int getCurrency_inventory_id() {
-        return currency_inventory_id;
+    @Column(name = "updated_in")
+    private Date updatedIn;
+
+    public CurrencyInventory(int currencyInventoryId, int dailyPrice, double oldPrice, double newPrice, boolean isActive, int staffId, Date updatedIn) {
+        this.currencyInventoryId = currencyInventoryId;
+        this.dailyPrice = dailyPrice;
+        this.oldPrice = oldPrice;
+        this.newPrice = newPrice;
+        this.isActive = isActive;
+        this.staffId = staffId;
+        this.updatedIn = updatedIn;
     }
 
-    public void setCurrency_inventory_id(int currency_inventory_id) {
-        this.currency_inventory_id = currency_inventory_id;
+    public int getCurrencyInventoryId() {
+        return currencyInventoryId;
     }
 
-    public int getDaily_price() {
-        return daily_price;
+    public void setCurrencyInventoryId(int currencyInventoryId) {
+        this.currencyInventoryId = currencyInventoryId;
     }
 
-    public void setDaily_price(int daily_price) {
-        this.daily_price = daily_price;
+    public int getDailyPrice() {
+        return dailyPrice;
     }
 
-    public double getOld_price() {
-        return old_price;
+    public void setDailyPrice(int dailyPrice) {
+        this.dailyPrice = dailyPrice;
     }
 
-    public void setOld_price(double old_price) {
-        this.old_price = old_price;
+    public double getOldPrice() {
+        return oldPrice;
     }
 
-    public double getNew_price() {
-        return new_price;
+    public void setOldPrice(double oldPrice) {
+        this.oldPrice = oldPrice;
     }
 
-    public void setNew_price(double new_price) {
-        this.new_price = new_price;
+    public double getNewPrice() {
+        return newPrice;
+    }
+
+    public void setNewPrice(double newPrice) {
+        this.newPrice = newPrice;
     }
 
     public boolean isActive() {
@@ -59,19 +79,32 @@ public class CurrencyInventory {
         isActive = active;
     }
 
-    public int getStaff_id() {
-        return staff_id;
+    public int getStaffId() {
+        return staffId;
     }
 
-    public void setStaff_id(int staff_id) {
-        this.staff_id = staff_id;
+    public void setStaffId(int staffId) {
+        this.staffId = staffId;
     }
 
-    public Date getUpdated_in() {
-        return updated_in;
+    public Date getUpdatedIn() {
+        return updatedIn;
     }
 
-    public void setUpdated_in(Date updated_in) {
-        this.updated_in = updated_in;
+    public void setUpdatedIn(Date updatedIn) {
+        this.updatedIn = updatedIn;
+    }
+
+    @Override
+    public String toString() {
+        return "CurrencyInventory{" +
+                "currencyInventoryId=" + currencyInventoryId +
+                ", dailyPrice=" + dailyPrice +
+                ", oldPrice=" + oldPrice +
+                ", newPrice=" + newPrice +
+                ", isActive=" + isActive +
+                ", staffId=" + staffId +
+                ", updatedIn=" + updatedIn +
+                '}';
     }
 }
