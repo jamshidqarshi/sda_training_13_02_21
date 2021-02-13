@@ -8,34 +8,34 @@ import java.util.Date;
 public class Transaction {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name ="transaction_id")
+    @Column(name = "transaction_id")
     private int transactionId;
-    
-    @Column(name ="wallet_id")
+
+    @Column(name = "wallet_id")
     private int walletId;
 
-    @Column(name ="wallet_sum")
+    @Column(name = "wallet_sum")
     private int walletSum;
 
-    @Column(name ="transaction_status")
-    private char transactionStatus;
+    @Column(name = "transaction_status")
+    private String transactionStatus;
 
-    @Column(name ="staff_id")
+    @Column(name = "staff_id")
     private int staffId;
 
-    @Column(name ="wallet_order_total")
+    @Column(name = "wallet_order_total")
     private double TransactionWalletOrderTotal;
 
-    @Column(name ="date_register")
+    @Column(name = "date_register")
     private Date date_register;
 
-    @Column(name ="payment_type_id")
+    @Column(name = "payment_type_id")
     private int payment_type_id;
 
     public Transaction() {
     }
 
-    public Transaction(int transactionId, int walletId, int walletSum, char transactionStatus, int staffId, double transactionWalletOrderTotal, Date date_register, int payment_type_id) {
+    public Transaction(int transactionId, int walletId, int walletSum, String transactionStatus, int staffId, double transactionWalletOrderTotal, Date date_register, int payment_type_id) {
         this.transactionId = transactionId;
         this.walletId = walletId;
         this.walletSum = walletSum;
@@ -44,6 +44,20 @@ public class Transaction {
         TransactionWalletOrderTotal = transactionWalletOrderTotal;
         this.date_register = date_register;
         this.payment_type_id = payment_type_id;
+    }
+
+    @Override
+    public String toString() {
+        return "Transaction{" +
+                "transactionId=" + transactionId +
+                ", walletId=" + walletId +
+                ", walletSum=" + walletSum +
+                ", transactionStatus='" + transactionStatus + '\'' +
+                ", staffId=" + staffId +
+                ", TransactionWalletOrderTotal=" + TransactionWalletOrderTotal +
+                ", date_register=" + date_register +
+                ", payment_type_id=" + payment_type_id +
+                '}';
     }
 
     public int getTransactionId() {
@@ -73,11 +87,11 @@ public class Transaction {
         return this;
     }
 
-    public char getTransactionStatus() {
+    public String getTransactionStatus() {
         return transactionStatus;
     }
 
-    public Transaction setTransactionStatus(char transactionStatus) {
+    public Transaction setTransactionStatus(String transactionStatus) {
         this.transactionStatus = transactionStatus;
         return this;
     }
@@ -116,19 +130,5 @@ public class Transaction {
     public Transaction setPayment_type_id(int payment_type_id) {
         this.payment_type_id = payment_type_id;
         return this;
-    }
-
-    @Override
-    public String toString() {
-        return "Transaction{" +
-                "transactionId=" + transactionId +
-                ", walletId=" + walletId +
-                ", walletSum=" + walletSum +
-                ", transactionStatus=" + transactionStatus +
-                ", staffId=" + staffId +
-                ", TransactionWalletOrderTotal=" + TransactionWalletOrderTotal +
-                ", date_register=" + date_register +
-                ", payment_type_id=" + payment_type_id +
-                '}';
     }
 }
