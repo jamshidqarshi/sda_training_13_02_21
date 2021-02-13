@@ -34,7 +34,7 @@ public class CustomerRepository {
     public void deleteCustomer(Transaction t){
         try {
             entityManager.getTransaction().begin();
-            entityManager.remove(t);
+            entityManager.remove(entityManager.merge(t));
             entityManager.getTransaction().commit();
         } catch (Exception e){
             entityManager.getTransaction().rollback();
