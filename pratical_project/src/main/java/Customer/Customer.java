@@ -1,10 +1,33 @@
 package Customer;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+import javax.persistence.Id;
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+
+@Entity
+@Table (name = "customers")
 public class Customer {
+    @Id
+    @GeneratedValue (strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
+    private int id;
+
+    @Column(name = "name")
     private String name;
+
+    @Column(name = "lastName")
     private String lastName;
+
+    @Column(name = "address")
     private String address;
+
+    @Column(name = "phoneNumber")
     private int phoneNumber;
+
+    @Column(name = "customerNumber")
     private int customerNumber;
 
     public Customer() {
@@ -16,6 +39,10 @@ public class Customer {
         this.address = address;
         this.phoneNumber = phoneNumber;
         this.customerNumber = customerNumber;
+    }
+
+    public int getId() {
+        return id;
     }
 
     public String getName() {
