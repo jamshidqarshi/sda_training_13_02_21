@@ -6,6 +6,7 @@ import javax.persistence.Id;
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+import java.util.Date;
 
 @Entity
 @Table (name = "customers")
@@ -18,27 +19,41 @@ public class Customer {
     @Column(name = "name")
     private String name;
 
-    @Column(name = "lastName")
+    @Column(name = "last_name")
     private String lastName;
 
     @Column(name = "address")
     private String address;
 
-    @Column(name = "phoneNumber")
+    @Column(name = "passport")
+    private String passport;
+
+    @Column(name = "national_id")
+    private String nationalId;
+
+    @Column(name = "date_of_birth")
+    private Date dateOfBirth;
+
+    @Column(name = "phone_number")
     private int phoneNumber;
 
-    @Column(name = "customerNumber")
+    @Column(name = "customer_number")
     private int customerNumber;
 
     public Customer() {
+
     }
 
-    public Customer(String name, String lastName, String address, int phoneNumber, int customerNumber) {
+
+    public Customer(String name, String lastName, String address, String passport, int phoneNumber, int customerNumber,String nationalId, Date dateOfBirth) {
         this.name = name;
         this.lastName = lastName;
         this.address = address;
+        this.passport = passport;
         this.phoneNumber = phoneNumber;
         this.customerNumber = customerNumber;
+        this.nationalId = nationalId;
+        this.dateOfBirth = dateOfBirth;
     }
 
     public int getId() {
@@ -59,6 +74,14 @@ public class Customer {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    public String getPassport() {
+        return passport;
+    }
+
+    public void setPassport(String passport) {
+        this.passport = passport;
     }
 
     public String getAddress() {
@@ -83,5 +106,21 @@ public class Customer {
 
     public void setCustomerNumber(int customerNumber) {
         this.customerNumber = customerNumber;
+    }
+
+    public String getNationalId() {
+        return nationalId;
+    }
+
+    public void setNationalId(String nationalId) {
+        this.nationalId = nationalId;
+    }
+
+    public Date getDateOfBirth() {
+        return dateOfBirth;
+    }
+
+    public void setDateOfBirth(Date dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
     }
 }
