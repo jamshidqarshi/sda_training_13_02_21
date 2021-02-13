@@ -10,9 +10,7 @@ public class Transaction {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name ="transaction_id")
     private int transactionId;
-
-
-    private int test;
+    
     @Column(name ="wallet_id")
     private int walletId;
 
