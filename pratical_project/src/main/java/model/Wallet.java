@@ -9,8 +9,6 @@ public class Wallet {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "wallet_id")
     private int walletId;
-    @Column(name = "customer_id")
-    private int customerId;
     @Column(name = "date_register")
     private Date dateRegister;
     @Column(name = "status")
@@ -19,9 +17,8 @@ public class Wallet {
     public Wallet() {
     }
 
-    public Wallet(int walletId, int customerId, Date dateRegister, String status) {
+    public Wallet(int walletId, Date dateRegister, String status) {
         this.walletId = walletId;
-        this.customerId = customerId;
         this.dateRegister = dateRegister;
         this.status = status;
     }
@@ -32,14 +29,6 @@ public class Wallet {
 
     public void setWalletId(int walletId) {
         this.walletId = walletId;
-    }
-
-    public int getCustomerId() {
-        return customerId;
-    }
-
-    public void setCustomerId(int customerId) {
-        this.customerId = customerId;
     }
 
     public Date getDateRegister() {
