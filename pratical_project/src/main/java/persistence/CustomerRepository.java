@@ -9,6 +9,7 @@ public class CustomerRepository {
 
     private EntityManager entityManager;
     //test
+    //test 23
 
     public CustomerRepository() {entityManager = DBUtil.getEntityManager();}
 
