@@ -1,23 +1,24 @@
 package model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
+@Table(name = "payment_type")
 public class PaymentType {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int payment_type_id;
+    @Column(name = "payment_type_id")
+    private int paymentTypeId;
+
+    @Column(name = "name")
     private String name;
 
-    public int getPayment_type_id() {
-        return payment_type_id;
+    public int getPaymentTypeId() {
+        return paymentTypeId;
     }
 
-    public void setPayment_type_id(int payment_type_id) {
-        this.payment_type_id = payment_type_id;
+    public void setPaymentTypeId(int paymentTypeId) {
+        this.paymentTypeId = paymentTypeId;
     }
 
     public String getName() {
@@ -26,5 +27,18 @@ public class PaymentType {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public PaymentType(int paymentTypeId, String name) {
+        this.paymentTypeId = paymentTypeId;
+        this.name = name;
+    }
+
+    @Override
+    public String toString() {
+        return "PaymentType{" +
+                "paymentTypeId=" + paymentTypeId +
+                ", name='" + name + '\'' +
+                '}';
     }
 }
