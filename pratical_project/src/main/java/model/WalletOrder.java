@@ -20,6 +20,10 @@ public class WalletOrder {
     @Column(name = "date_register")
     private Date dateRegister;
 
+    @ManyToOne
+    @JoinColumn(name = "wallet_id")
+    private Wallet wallet;
+
     public WalletOrder() {
     }
 
