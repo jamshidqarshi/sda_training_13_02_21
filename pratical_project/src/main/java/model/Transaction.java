@@ -37,10 +37,6 @@ public class Transaction {
     @JoinColumn(name = "staff_id")
     private Staff staff;
 
-    @ManyToOne
-    @JoinColumn(name = "staff_id")
-    private Staff staff;
-
     public Transaction() {
     }
 
