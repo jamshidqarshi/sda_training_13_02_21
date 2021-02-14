@@ -16,6 +16,53 @@ import java.util.ResourceBundle;
 
 public class LoginController implements Initializable {
 
+    @FXML
+    private TextField txtUser;
+
+    @FXML
+    private PasswordField txtPassword;
+
+    private Stage dialogStage = new Stage();
+    private Scene scene;
+
+
+    public LoginController() {
+
+    }
+
+    @FXML
+    private void handleButtonAction(ActionEvent event) {
+        String user = txtUser.getText().toString();
+        String password = txtPassword.getText().toString();
+
+        try {
+            //HERE YOU COMPARE USER AND PASSWORD FROM DATABASE - TABLE STAFF
+            if (user.equals("1") && password.equals("1")) {
+
+                infoBox("Login Successfull", "Success", null);
+                Node source = (Node) event.getSource();
+                dialogStage = (Stage) source.getScene().getWindow();
+                dialogStage.close();
+                scene = new Scene(FXMLLoader.load(getClass().getClassLoader().getResource("gui/menu.fxml" )));
+                dialogStage.setScene(scene);
+                dialogStage.show();
+
+            } else {
+                infoBox("Enter Correct Email and Password", "Failed", null);
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void infoBox(String infoMessage, String titleBar, String headerMessage) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle(titleBar);
+        alert.setHeaderText(headerMessage);
+        alert.setContentText(infoMessage);
+        alert.showAndWait();
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="383.0" prefWidth="468.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.MenuAddStaffController">
+   <children>
+      <Button fx:id="btnCkeckBox" layoutX="156.0" layoutY="23.0" mnemonicParsing="false" onAction="#buttonClick" text="Clique" />
+      <CheckBox fx:id="ch1" layoutX="14.0" layoutY="27.0" mnemonicParsing="false" selected="true" text="ch1" />
+      <ChoiceBox fx:id="choiceBox" layoutX="4.0" layoutY="72.0" prefWidth="150.0" />
+      <Button layoutX="156.0" layoutY="72.0" mnemonicParsing="false" text="Clique" />
+      <ComboBox fx:id="comboBox" layoutX="4.0" layoutY="125.0" prefWidth="150.0" />
+      <Button layoutX="156.0" layoutY="125.0" mnemonicParsing="false" text="Clique" />
+      <RadioButton fx:id="radioA" layoutX="13.0" layoutY="177.0" mnemonicParsing="false" selected="true" text="A">
+         <toggleGroup>
+            <ToggleGroup fx:id="groupRadio" />
+         </toggleGroup></RadioButton>
+      <RadioButton fx:id="radioB" layoutX="57.0" layoutY="177.0" mnemonicParsing="false" text="B" toggleGroup="$groupRadio" />
+      <Button layoutX="156.0" layoutY="173.0" mnemonicParsing="false" text="Clique" />
+      <TextField fx:id="textField" layoutX="5.0" layoutY="221.0" promptText="text" />
+      <Button layoutX="156.0" layoutY="221.0" mnemonicParsing="false" text="Clique" />
+      <ToggleButton fx:id="toggleA" layoutX="5.0" layoutY="269.0" mnemonicParsing="false" selected="true" text="ToggA">
+         <toggleGroup>
+            <ToggleGroup fx:id="groupToggle" />
+         </toggleGroup></ToggleButton>
+      <Button layoutX="156.0" layoutY="269.0" mnemonicParsing="false" text="Clique" />
+      <CheckBox fx:id="ch2" layoutX="76.0" layoutY="27.0" mnemonicParsing="false" text="ch2" />
+      <Label fx:id="label" layoutX="251.0" layoutY="76.0" text="Print" />
+      <Slider fx:id="slider" layoutX="251.0" layoutY="41.0" />
+      <ToggleButton fx:id="toggleB" layoutX="60.0" layoutY="269.0" mnemonicParsing="false" text="ToggB" toggleGroup="$groupToggle" />
+   </children>
+</AnchorPane>
