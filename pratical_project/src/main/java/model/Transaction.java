@@ -33,6 +33,14 @@ public class Transaction {
     @JoinColumn(name = "payment_type_id")
     private PaymentType paymentType;
 
+    @ManyToOne
+    @JoinColumn(name = "staff_id")
+    private Staff staff;
+
+    @ManyToOne
+    @JoinColumn(name = "staff_id")
+    private Staff staff;
+
     public Transaction() {
     }
 
@@ -109,6 +117,14 @@ public class Transaction {
 
     public void setPaymentType(PaymentType paymentType) {
         this.paymentType = paymentType;
+    }
+
+    public Staff getStaff() {
+        return staff;
+    }
+
+    public void setStaff(Staff staff) {
+        this.staff = staff;
     }
 
     @Override
