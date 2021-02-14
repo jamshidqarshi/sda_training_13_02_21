@@ -19,9 +19,13 @@ public class Staff {
 
     @Column(name = "username")
     private String username;
-
+  
     @Column(name = "password")
     private String password;
+  
+    @ManyToOne
+    @JoinColumn(name = "role_id")
+    private Role role;
 
     public Staff(int staffId, String firstName, String lastName, String username, String password) {
         this.staffId = staffId;
