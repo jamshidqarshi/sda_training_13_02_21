@@ -2,7 +2,6 @@ package model;
 
 
 import javax.persistence.*;
-import java.util.Currency;
 import java.util.Date;
 
 @Entity
