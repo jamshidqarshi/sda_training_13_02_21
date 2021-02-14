@@ -32,6 +32,10 @@ public class Transaction {
     @Column(name = "payment_type_id")
     private int payment_type_id;
 
+    @ManyToOne
+    @JoinColumn(name = "staff_id")
+    private Staff staff;
+
     public Transaction() {
     }
 
