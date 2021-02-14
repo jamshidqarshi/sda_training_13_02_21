@@ -14,6 +14,10 @@ public class Wallet {
     @Column(name = "status")
     private String status;
 
+    @ManyToOne
+    @JoinColumn (name = "customer_id")
+    private Customer customer;
+
     public Wallet() {
     }
 
@@ -21,6 +25,13 @@ public class Wallet {
         this.walletId = walletId;
         this.dateRegister = dateRegister;
         this.status = status;
+    }
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
     }
 
     public int getWalletId() {
