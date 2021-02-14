@@ -19,24 +19,20 @@ public class Staff {
 
     @Column(name = "username")
     private String username;
-
-    @ManyToOne
-    @JoinColumn(name = "role_id")
-    private Role role;
-
-<<<<<<< Updated upstream
-    public Staff(int staffId, String firstName, String lastName, String username) {
-=======
+  
+    @Column(name = "password")
+    private String password;
+  
     @ManyToOne
     @JoinColumn(name = "role_id")
     private Role role;
 
     public Staff(int staffId, String firstName, String lastName, String username, String password) {
->>>>>>> Stashed changes
         this.staffId = staffId;
         this.firstName = firstName;
         this.lastName = lastName;
         this.username = username;
+        this.password = password;
     }
 
     public int getStaffId() {
@@ -70,6 +66,10 @@ public class Staff {
     public void setUsername(String username) {
         this.username = username;
     }
+
+    public String getPassword() { return password; }
+
+    public void setPassword(String password) { this.password = password; }
 
     @Override
     public String toString() {
