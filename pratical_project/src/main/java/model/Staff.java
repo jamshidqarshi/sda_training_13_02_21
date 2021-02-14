@@ -20,6 +20,10 @@ public class Staff {
     @Column(name = "username")
     private String username;
 
+    @ManyToOne
+    @JoinColumn(name = "role_id")
+    private Role role;
+
     public Staff(int staffId, String firstName, String lastName, String username) {
         this.staffId = staffId;
         this.firstName = firstName;
