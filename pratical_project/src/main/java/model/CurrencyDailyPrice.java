@@ -2,6 +2,7 @@ package model;
 
 
 import javax.persistence.*;
+import java.util.Currency;
 import java.util.Date;
 
 @Entity
@@ -26,6 +27,10 @@ public class CurrencyDailyPrice {
 
     @Column(name = "amount_available")
     private double amountAvailable;
+
+    @ManyToOne
+    @JoinColumn(name = "currency_id")
+    private Currency currency;
 
     public CurrencyDailyPrice() {
     }
