@@ -36,6 +36,10 @@ public class Transaction {
     @JoinColumn(name = "staff_id")
     private Staff staff;
 
+    @ManyToOne
+    @JoinColumn(name = "staff_id")
+    private Staff staff;
+
     public Transaction() {
     }
 
@@ -131,8 +135,35 @@ public class Transaction {
         return payment_type_id;
     }
 
+<<<<<<< Updated upstream
     public Transaction setPayment_type_id(int payment_type_id) {
         this.payment_type_id = payment_type_id;
         return this;
+=======
+    public void setPaymentType(PaymentType paymentType) {
+        this.paymentType = paymentType;
+    }
+
+    public Staff getStaff() {
+        return staff;
+    }
+
+    public void setStaff(Staff staff) {
+        this.staff = staff;
+    }
+
+    @Override
+    public String toString() {
+        return "Transaction{" +
+                "transactionId=" + transactionId +
+                ", walletId=" + walletId +
+                ", walletSum=" + walletSum +
+                ", status='" + status + '\'' +
+                ", staffId=" + staffId +
+                ", walletOrderTotal=" + walletOrderTotal +
+                ", dateRegister=" + dateRegister +
+                ", paymentType=" + paymentType +
+                '}';
+>>>>>>> Stashed changes
     }
 }
