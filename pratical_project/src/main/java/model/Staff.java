@@ -24,7 +24,15 @@ public class Staff {
     @JoinColumn(name = "role_id")
     private Role role;
 
+<<<<<<< Updated upstream
     public Staff(int staffId, String firstName, String lastName, String username) {
+=======
+    @ManyToOne
+    @JoinColumn(name = "role_id")
+    private Role role;
+
+    public Staff(int staffId, String firstName, String lastName, String username, String password) {
+>>>>>>> Stashed changes
         this.staffId = staffId;
         this.firstName = firstName;
         this.lastName = lastName;
