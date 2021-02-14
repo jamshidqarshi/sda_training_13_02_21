@@ -17,20 +17,21 @@ public class Transaction {
     @Column(name = "wallet_sum")
     private int walletSum;
 
-    @Column(name = "transaction_status")
-    private String transactionStatus;
+    @Column(name = "status")
+    private String status;
 
     @Column(name = "staff_id")
     private int staffId;
 
     @Column(name = "wallet_order_total")
-    private double TransactionWalletOrderTotal;
+    private double walletOrderTotal;
 
     @Column(name = "date_register")
-    private Date date_register;
+    private Date dateRegister;
 
-    @Column(name = "payment_type_id")
-    private int payment_type_id;
+    @ManyToOne
+    @JoinColumn(name = "payment_type_id")
+    private PaymentType paymentType;
 
     @ManyToOne
     @JoinColumn(name = "staff_id")
@@ -43,103 +44,77 @@ public class Transaction {
     public Transaction() {
     }
 
-    public Transaction(int transactionId, int walletId, int walletSum, String transactionStatus, int staffId, double transactionWalletOrderTotal, Date date_register, int payment_type_id) {
+    public Transaction(int transactionId, int walletId, int walletSum, String status, int staffId, double walletOrderTotal, Date dateRegister, PaymentType paymentType) {
         this.transactionId = transactionId;
         this.walletId = walletId;
         this.walletSum = walletSum;
-        this.transactionStatus = transactionStatus;
+        this.status = status;
         this.staffId = staffId;
-        TransactionWalletOrderTotal = transactionWalletOrderTotal;
-        this.date_register = date_register;
-        this.payment_type_id = payment_type_id;
-    }
-
-    @Override
-    public String toString() {
-        return "Transaction{" +
-                "transactionId=" + transactionId +
-                ", walletId=" + walletId +
-                ", walletSum=" + walletSum +
-                ", transactionStatus='" + transactionStatus + '\'' +
-                ", staffId=" + staffId +
-                ", TransactionWalletOrderTotal=" + TransactionWalletOrderTotal +
-                ", date_register=" + date_register +
-                ", payment_type_id=" + payment_type_id +
-                '}';
+        this.walletOrderTotal = walletOrderTotal;
+        this.dateRegister = dateRegister;
+        this.paymentType = paymentType;
     }
 
     public int getTransactionId() {
         return transactionId;
     }
 
-    public Transaction setTransactionId(int transactionId) {
+    public void setTransactionId(int transactionId) {
         this.transactionId = transactionId;
-        return this;
     }
 
     public int getWalletId() {
         return walletId;
     }
 
-    public Transaction setWalletId(int walletId) {
+    public void setWalletId(int walletId) {
         this.walletId = walletId;
-        return this;
     }
 
     public int getWalletSum() {
         return walletSum;
     }
 
-    public Transaction setWalletSum(int walletSum) {
+    public void setWalletSum(int walletSum) {
         this.walletSum = walletSum;
-        return this;
     }
 
-    public String getTransactionStatus() {
-        return transactionStatus;
+    public String getStatus() {
+        return status;
     }
 
-    public Transaction setTransactionStatus(String transactionStatus) {
-        this.transactionStatus = transactionStatus;
-        return this;
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     public int getStaffId() {
         return staffId;
     }
 
-    public Transaction setStaffId(int staffId) {
+    public void setStaffId(int staffId) {
         this.staffId = staffId;
-        return this;
     }
 
-    public double getTransactionWalletOrderTotal() {
-        return TransactionWalletOrderTotal;
+    public double getWalletOrderTotal() {
+        return walletOrderTotal;
     }
 
-    public Transaction setTransactionWalletOrderTotal(double transactionWalletOrderTotal) {
-        TransactionWalletOrderTotal = transactionWalletOrderTotal;
-        return this;
+    public void setWalletOrderTotal(double walletOrderTotal) {
+        this.walletOrderTotal = walletOrderTotal;
     }
 
-    public Date getDate_register() {
-        return date_register;
+    public Date getDateRegister() {
+        return dateRegister;
     }
 
-    public Transaction setDate_register(Date date_register) {
-        this.date_register = date_register;
-        return this;
+    public void setDateRegister(Date dateRegister) {
+        this.dateRegister = dateRegister;
     }
 
-    public int getPayment_type_id() {
-        return payment_type_id;
+    public PaymentType getPaymentType() {
+        return paymentType;
     }
 
-<<<<<<< Updated upstream
-    public Transaction setPayment_type_id(int payment_type_id) {
-        this.payment_type_id = payment_type_id;
-        return this;
-=======
     public void setPaymentType(PaymentType paymentType) {
         this.paymentType = paymentType;
     }
@@ -164,6 +139,5 @@ public class Transaction {
                 ", dateRegister=" + dateRegister +
                 ", paymentType=" + paymentType +
                 '}';
->>>>>>> Stashed changes
     }
 }

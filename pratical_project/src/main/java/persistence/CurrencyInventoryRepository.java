@@ -1,24 +1,23 @@
 package persistence;
 
-import model.CurrencyDailyPrice;
 import util.DBUtil;
 
 import javax.persistence.EntityManager;
 
-public class CurrencyRepository {
+public class CurrencyInventoryRepository {
+
     private EntityManager entityManager;
 
-
-    public CurrencyRepository() {
+    public CurrencyInventoryRepository() {
         entityManager = DBUtil.getEntityManager();
     }
 
-    public void save(CurrencyRepository currencyRepository){
+    public void save(CurrencyInventoryRepository currencyInventoryRepository){
         try{
             entityManager.getTransaction().begin();
-            entityManager.persist(currencyRepository);
+            entityManager.persist(currencyInventoryRepository);
             entityManager.getTransaction().commit();
-        }catch (Exception e){
+        } catch (Exception e){
             entityManager.getTransaction().rollback();
         }
     }
