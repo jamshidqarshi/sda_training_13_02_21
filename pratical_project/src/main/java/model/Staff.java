@@ -20,11 +20,15 @@ public class Staff {
     @Column(name = "username")
     private String username;
 
-    public Staff(int staffId, String firstName, String lastName, String username) {
+    @Column(name = "password")
+    private String password;
+
+    public Staff(int staffId, String firstName, String lastName, String username, String password) {
         this.staffId = staffId;
         this.firstName = firstName;
         this.lastName = lastName;
         this.username = username;
+        this.password = password;
     }
 
     public int getStaffId() {
@@ -58,6 +62,10 @@ public class Staff {
     public void setUsername(String username) {
         this.username = username;
     }
+
+    public String getPassword() { return password; }
+
+    public void setPassword(String password) { this.password = password; }
 
     @Override
     public String toString() {
