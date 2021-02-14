@@ -1,5 +1,6 @@
 package persistence;
 
+import model.Customer;
 import model.Transaction;
 import util.DBUtil;
 
@@ -11,7 +12,7 @@ public class CustomerRepository {
 
     public CustomerRepository() {entityManager = DBUtil.getEntityManager();}
 
-    public void saveCustomer(Transaction t){
+    public void saveCustomer(Customer t){
         try {
             entityManager.getTransaction().begin();
             entityManager.persist(t);
@@ -21,7 +22,7 @@ public class CustomerRepository {
         }
     }
 
-    public void updateCustomer(Transaction t){
+    public void updateCustomer(Customer t){
         try {
             entityManager.getTransaction().begin();
             entityManager.merge(t);
@@ -31,7 +32,7 @@ public class CustomerRepository {
         }
     }
 
-    public void deleteCustomer(Transaction t){
+    public void deleteCustomer(Customer t){
         try {
             entityManager.getTransaction().begin();
             entityManager.remove(entityManager.merge(t));
