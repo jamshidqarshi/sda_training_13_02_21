@@ -15,6 +15,10 @@ public class WalletOrder {
     @JoinColumn(name = "current_daily_price_id")
     private CurrencyDailyPrice currencyDailyPrice;
 
+    @ManyToOne
+    @JoinColumn(name = "wallet_id")
+    private Wallet wallet;
+
     @Column(name = "wallet_amount")
     private double walletAmount;
 
@@ -48,6 +52,15 @@ public class WalletOrder {
 
     public WalletOrder setCurrencyDailyPrice(CurrencyDailyPrice currencyDailyPrice) {
         this.currencyDailyPrice = currencyDailyPrice;
+        return this;
+    }
+
+    public Wallet getWallet() {
+        return wallet;
+    }
+
+    public WalletOrder setWallet(Wallet wallet) {
+        this.wallet = wallet;
         return this;
     }
 
